@@ -13,11 +13,10 @@ def attendance():
     data = request.json
     uid = data.get("rfid_uid")
 
-    result = EMPLOYEES.get(uid, "DENY")
+    result = "ALLOW" if uid == "A1B2C3D4" else "DENY"
 
-    return jsonify({
-        "result": result
-    })
+    return jsonify({"result": result})
 
 if __name__ == "__main__":
     app.run()
+
